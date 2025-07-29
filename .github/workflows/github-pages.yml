@@ -2,7 +2,7 @@ name: Rsbuild Deployment
 
 on:
   push:
-    branches: ['master'] # o 'master' si tu rama principal es master
+    branches: ['master']
   workflow_dispatch:
 
 permissions:
@@ -40,7 +40,10 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
+          name: rsbuild-site   # 👈 nombre único para evitar conflicto
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: rsbuild-site  # 👈 usar el mismo nombre
