@@ -7,4 +7,7 @@ export default defineConfig({
     title: 'App TASK',
     favicon: 'https://cdn-icons-png.flaticon.com/32/906/906334.png',
   },
+  output: {
+    assetPrefix: '/task-example-react/',
+  },
 });
