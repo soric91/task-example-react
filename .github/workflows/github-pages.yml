@@ -2,7 +2,7 @@ name: Rsbuild Deployment
 
 on:
   push:
-    branches: ['main'] # o 'master' si tu rama principal es master
+    branches: ['master'] # o 'master' si tu rama principal es master
   workflow_dispatch:
 
 permissions:
