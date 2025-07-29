@@ -1,9 +1,13 @@
+
 name: Rsbuild Deployment
 
 on:
+
   push:
     branches: ['master']
+
   workflow_dispatch:
+
 
 permissions:
   contents: read
@@ -17,7 +21,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: github-pages
 
     steps:
       - name: Checkout
@@ -28,8 +31,9 @@ jobs:
         with:
           node-version: 22
 
+
       - name: Install dependencies
-        run: npm install
+        run: npm i
 
       - name: Build
         run: npm run build
@@ -41,10 +45,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
-          name: rsbuild-site   # 👈 nombre único para evitar conflicto
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          artifact_name: rsbuild-site  # 👈 usar el mismo nombre
